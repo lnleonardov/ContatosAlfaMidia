@@ -41,9 +41,20 @@ namespace ExexmplosAPP
             pessoa.Sobrenome = "Santana";
             pessoa.CPF = "123456789";
 
+            //Telefones
+            pessoa.Telefones = new List<Telefone>();
+            AdicionarTelefone(pessoa, "+55 51 3333-3333");
+            AdicionarTelefone(pessoa, "+55 51 99999-9999");
+            AdicionarTelefone(pessoa, "+55 51 99999-9999");
+
+
             Console.WriteLine($"Nome: {pessoa.Nome}\nCPF: {pessoa.CPF}");
 
             Console.WriteLine("Nome Completo: {0}", pessoa.NomeCompleto(pessoa.Nome, pessoa.Sobrenome));
+
+            Console.WriteLine($"Telefone 1:{pessoa.Telefones[0].Numero}");
+            Console.WriteLine($"Telefone 2:{pessoa.Telefones[1].Numero}");
+            Console.WriteLine($"Telefone 3:{pessoa.Telefones[2].Numero}");
 
             Console.ReadKey();
 
@@ -60,6 +71,14 @@ namespace ExexmplosAPP
             Console.WriteLine("Difereça: " + (idadeMaisVelho - idadeMaisNovo).ToString());
         }
 
+        public static void AdicionarTelefone(Pessoa pessoa, string telefone)
+
+        {
+            var objetoTelefone = new Telefone();
+            objetoTelefone.Numero = telefone;
+            pessoa.Telefones.Add(objetoTelefone);
+
+        }
 
     }
 }
