@@ -45,16 +45,18 @@ namespace ExexmplosAPP
             pessoa.Telefones = new List<Telefone>();
             AdicionarTelefone(pessoa, "+55 51 3333-3333");
             AdicionarTelefone(pessoa, "+55 51 99999-9999");
-            AdicionarTelefone(pessoa, "+55 51 99999-9999");
+            AdicionarTelefone(pessoa, "+55 51 99999-9991");
+            AdicionarTelefone(pessoa, "+55 51 99999-9992");
+            AdicionarTelefone(pessoa, "+55 51 99999-9993");
+            AdicionarTelefone(pessoa, "+55 51 99999-9994");
+            AdicionarTelefone(pessoa, "+55 51 99999-9995");
 
 
             Console.WriteLine($"Nome: {pessoa.Nome}\nCPF: {pessoa.CPF}");
 
             Console.WriteLine("Nome Completo: {0}", pessoa.NomeCompleto(pessoa.Nome, pessoa.Sobrenome));
 
-            Console.WriteLine($"Telefone 1:{pessoa.Telefones[0].Numero}");
-            Console.WriteLine($"Telefone 2:{pessoa.Telefones[1].Numero}");
-            Console.WriteLine($"Telefone 3:{pessoa.Telefones[2].Numero}");
+            EscreveNumeros(pessoa);
 
             Console.ReadKey();
 
@@ -78,6 +80,14 @@ namespace ExexmplosAPP
             objetoTelefone.Numero = telefone;
             pessoa.Telefones.Add(objetoTelefone);
 
+        }
+
+        public static void EscreveNumeros(Pessoa pessoa)
+        {
+            for (int i = 0; i < pessoa.Telefones.Count(); i++)
+            {
+                Console.WriteLine($"Telefone {i + 1}:{pessoa.Telefones[i].Numero}");
+            }
         }
 
     }
