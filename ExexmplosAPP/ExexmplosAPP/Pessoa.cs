@@ -15,6 +15,7 @@ namespace ExexmplosAPP
 
         public List<Telefone> Telefones { get; set; }
         public List<Email> Emails { get; set; }
+        public List<Logradouro> Logradouros { get; set; } 
 
         public string NomeCompleto(string primeiro, string sobrenome)
         {

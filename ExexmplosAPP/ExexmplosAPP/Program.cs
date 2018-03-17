@@ -58,12 +58,22 @@ namespace ExexmplosAPP
             AdicionarEmail(pessoa, "12345@gmail.com");
             AdicionarEmail(pessoa, "123456@gmail.com");
 
+            //Logradouros
+            pessoa.Logradouros = new List<Logradouro>();
+            AdicionarLogradouro(pessoa, "Rua1", "1");
+            AdicionarLogradouro(pessoa, "Rua2", "2");
+            AdicionarLogradouro(pessoa, "Rua3", "3");
+            AdicionarLogradouro(pessoa, "Rua7", "4");
+
+
+
 
             Console.WriteLine($"Nome: {pessoa.Nome}\nCPF: {pessoa.CPF}");
 
             Console.WriteLine("Nome Completo: {0}", pessoa.NomeCompleto(pessoa.Nome, pessoa.Sobrenome));
 
             EscreveNumeros(pessoa);
+            EscreveLogradouros(pessoa);
             EscreveEmails(pessoa);
            
 
@@ -98,7 +108,13 @@ namespace ExexmplosAPP
             pessoa.Emails.Add(objetoEmail);
 
         }
-
+        public static void AdicionarLogradouro(Pessoa pessoa, string numero, string rua)
+        {
+            var objetoLogradouro = new Logradouro();
+            objetoLogradouro.Numero = numero;
+            objetoLogradouro.Rua = rua;
+            pessoa.Logradouros.Add(objetoLogradouro);
+        }
         public static void EscreveNumeros(Pessoa pessoa)
         {
             for (int i = 0; i < pessoa.Telefones.Count(); i++)
@@ -106,8 +122,7 @@ namespace ExexmplosAPP
                 Console.WriteLine($"Telefone {i + 1}:{pessoa.Telefones[i].Numero}");
             }
         }
-
-        public static void EscreveEmails(Pessoa pessoa)
+        public static void EscreveLogradouros(Pessoa pessoa)
         {
             Console.Write("Emails : ");
             foreach (Email item in pessoa.Emails)
@@ -116,6 +131,15 @@ namespace ExexmplosAPP
             }
         }
 
-
+        public static void EscreveEmails(Pessoa pessoa)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Logradouros: ");
+            foreach (Logradouro item in pessoa.Logradouros)
+            {
+                Console.WriteLine($"{item.Rua},{item.Numero} ");
+            }
+        }
     }
 }
