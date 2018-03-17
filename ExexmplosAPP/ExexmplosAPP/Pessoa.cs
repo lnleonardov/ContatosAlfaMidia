@@ -14,6 +14,7 @@ namespace ExexmplosAPP
         public string CPF { get; set; }
 
         public List<Telefone> Telefones { get; set; }
+        public List<Email> Emails { get; set; }
 
         public string NomeCompleto(string primeiro, string sobrenome)
         {

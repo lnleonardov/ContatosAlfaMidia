@@ -51,12 +51,21 @@ namespace ExexmplosAPP
             AdicionarTelefone(pessoa, "+55 51 99999-9994");
             AdicionarTelefone(pessoa, "+55 51 99999-9995");
 
+            // Emails
+            pessoa.Emails = new List<Email>();
+            AdicionarEmail(pessoa, "123@gmail.com");
+            AdicionarEmail(pessoa, "1234@gmail.com");
+            AdicionarEmail(pessoa, "12345@gmail.com");
+            AdicionarEmail(pessoa, "123456@gmail.com");
+
 
             Console.WriteLine($"Nome: {pessoa.Nome}\nCPF: {pessoa.CPF}");
 
             Console.WriteLine("Nome Completo: {0}", pessoa.NomeCompleto(pessoa.Nome, pessoa.Sobrenome));
 
             EscreveNumeros(pessoa);
+            EscreveEmails(pessoa);
+           
 
             Console.ReadKey();
 
@@ -81,6 +90,14 @@ namespace ExexmplosAPP
             pessoa.Telefones.Add(objetoTelefone);
 
         }
+        public static void AdicionarEmail(Pessoa pessoa, string endereco)
+
+        {
+            var objetoEmail = new Email();
+            objetoEmail.Endereco = endereco;
+            pessoa.Emails.Add(objetoEmail);
+
+        }
 
         public static void EscreveNumeros(Pessoa pessoa)
         {
@@ -89,6 +106,16 @@ namespace ExexmplosAPP
                 Console.WriteLine($"Telefone {i + 1}:{pessoa.Telefones[i].Numero}");
             }
         }
+
+        public static void EscreveEmails(Pessoa pessoa)
+        {
+            Console.Write("Emails : ");
+            foreach (Email item in pessoa.Emails)
+            {
+                Console.Write($"{item.Endereco}, ");
+            }
+        }
+
 
     }
 }
